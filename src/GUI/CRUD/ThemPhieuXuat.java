@@ -829,20 +829,16 @@ public class ThemPhieuXuat extends javax.swing.JDialog {
         int phantram = Integer.parseInt(jTextField3.getText());
         int maphienbansanpham = Integer.parseInt(jComboBox1.getSelectedItem().toString().split(" ")[11]);
         ArrayList<DTO_ChiTietPhieuNhap> listctphieunhap = busPhieuNhap.getAllChiTietPhieuNhap(maphienbansanpham);
-        long sum = 0;
-        long soluong = 0;
+        long ma = 0;
+        //lay gia lon nhat
         for (DTO_ChiTietPhieuNhap i : listctphieunhap) {
             if (i.getMaphienbansp() == maphienbansanpham) {
-                sum += i.getDongia() * i.getSoluong();
-                soluong += i.getSoluong();
+                ma = Math.max(ma, i.getDongia());
             }
 
         }
-        
-
-        long giaban = sum / soluong;
-        giaban = giaban + giaban * phantram / 100;
-        giamappingdanhsach.add(giaban);
+        ma = ma + ma * phantram / 100;
+        giamappingdanhsach.add(ma);
         loaddsphieunhap();
         // tinh tong tien
         long tongtien = 0;
