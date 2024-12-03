@@ -52,18 +52,20 @@ public class PhanQuyen extends javax.swing.JPanel {
         initComponents();
         jTable1.setDefaultEditor(Object.class, null);
         loadTable(listnq);
-        // jButton4.setEnabled(false);
-        // jLabel1NCC.setEnabled(false);
-        // jButton2.setEnabled(false);
-        // jLabel2NCC.setEnabled(false);
-        // jButton3.setEnabled(false);
-        // jLabel3NCC.setEnabled(false);
-        // jButton5.setEnabled(false);
-        // jLabel4NCC.setEnabled(false);
+        jButton4.setEnabled(false);
+        jLabel1NCC.setEnabled(false);
+        jButton2.setEnabled(false);
+        jLabel2NCC.setEnabled(false);
+        jButton3.setEnabled(false);
+        jLabel3NCC.setEnabled(false);
+        jButton5.setEnabled(false);
+        jLabel4NCC.setEnabled(false);
         loadChucNangNhomQuyen();
     }
+
     public void loadChucNangNhomQuyen() {
         listNQ = busNQ.selectAllChucNangNQ(user.getManhomquyen());
+
 
         for (DTO_ChucNangNhomQuyen iNQ : listNQ) {
             if (iNQ.getMachucnang().equals("nhomquyen") && iNQ.getHanhdong().equals("create")) {
